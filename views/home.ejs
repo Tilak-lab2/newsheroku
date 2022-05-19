@@ -1,0 +1,23 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+<body>
+    <%if(locals.user){%>
+        <div class="row mt-5">
+            <div class="col-md-6 m-auto">
+              <div class="card card-body text-center">
+       <h1>Welcome <%=user.name%></h1>
+      
+       <a class="btn btn-outline-primary" href="/news/topnews" role="button">Top-News</a>
+       <a href="/sign-out" class="btn btn-outline-warning" role="button" >Sign-out</a>
+    </div>
+    </div>
+    </div>
+    
+     <%}%>
+</body>
+</html>

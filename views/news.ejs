@@ -1,0 +1,49 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <%if(locals.user){%>
+       
+ <div style="display: flex;flex-wrap: wrap;">
+    <% if(news.length>0){
+                for (var i=0 ; i<news.length ; i++){ %>
+                    <div class="card mx-3" style="width: 18rem;margin-top:20px;">
+                        <img src="<%= news[i].urlToImage%>" class="card-img-top" alt="<%= news[i].title%>">
+                        <div class="card-body">
+                            <h5 class="card-title"><%= news[i].title%></h5><span class="badge badge-primary"><%=news[i].author%></span>
+                            <p class="card-text"><%= news[i].description%></p><small>  <%=news[i].publishedAt%></small>
+                            <a target="_blank" href="<%= news[i].url%>" class="btn btn-outline-primary"> Read Article</a>
+                            
+                        </div>
+                    </div>
+            <%}}else{%>
+<div class="container w-50 my-3" style="justify-content: center;align-items: center;height: 75vh;">
+
+<div class="alert alert-warning alert-dismissible fade show" role="alert">
+    <strong><h4 class="alert-heading"><i class="fa fa-warning"></i> Warning!</h4></strong>Please enter a valid Query No Search Result Found On This Query : "<%=title %>"
+    <hr>
+    <P>Please Try with new query</P>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    <button id="tryagain" class="btn btn-outline-primary">
+          Try Again</button>
+</div>
+</div>
+        <%}%>
+    </div>
+ 
+
+
+
+    <%}else{%>
+        <h1>Please Login</h1>
+        <a href="/sign-in" class="btn btn-outline-primary">Sign-in</a>
+        <a href="/sign-up" class="btn btn-outline-primary">Sign-up</a>
+        
+        
+       <%}%> 
+</body>
+</html>
